@@ -1,5 +1,4 @@
 - hosts: all
-  becme: true
   gather_facts: no
   tasks:
     - name: Copy WAR to Tomcat
