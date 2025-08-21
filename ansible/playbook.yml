@@ -1,18 +1,18 @@
 - hosts: all
   become: yes 
-  become_user: rahul
+  become_user: rekha
   tasks:
     - name: Copy WAR to Tomcat
       copy:
-        src: /var/lib/jenkins/workspace/Ansi_Jenkins_Sonar/Amazon-Web/target/Amazon.war
-        dest: /home/rahul/Batch11/Ansi_Jenkins_Sonar/Tomcat/apache-tomcat-9.0.106/webapps
+        src: /var/lib/jenkins/workspace/Ansi_Sonar/Amazon-Web/target/Amazon.war
+        dest: /home/rekha/Ansi_Jenkins_Sonar/tomcat/apache-tomcat-9.0.106/webapps
         mode: '0644'
         remote_src: yes
 
     - name: Make Tomcat startup script executable
       file:
-        path: "/home/rahul/Batch11/Ansi_Jenkins_Sonar/Tomcat/apache-tomcat-9.0.106/bin/startup.sh"
+        path: "/home/rekha/Ansi_Jenkins_Sonar/tomcat/apache-tomcat-9.0.106/bin/startup.sh"
         mode: '0755'
 
     - name: Start Tomcat
-      shell: /home/rahul/Batch11/Ansi_Jenkins_Sonar/Tomcat/apache-tomcat-9.0.106/bin/startup.sh
+      shell: /home/rekha/Ansi_Jenkins_Sonar/tomcat/apache-tomcat-9.0.106/bin/startup.sh
